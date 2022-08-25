@@ -4,6 +4,7 @@ import streamlit as st  # pip install streamlit
 from gpxcsv import gpxtolist
 import numpy as np
 import matplotlib.pyplot as plt
+import haversine as hs
 
 
 

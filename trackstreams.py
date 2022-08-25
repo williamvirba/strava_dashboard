@@ -101,6 +101,23 @@ st.dataframe(df_selection.iloc[: , :20])
 
 
 
+average_hr = (df_selection["hr"].mean())
+sd_hr = (df_selection["hr"].std())
+
+left_column,right_column= st.columns(2)
+
+with left_column:
+    st.subheader("Average HR:")
+    st.subheader(f"{average_hr}")
+
+with right_column:
+    st.subheader("sd HR:")
+    st.subheader(f"{sd_hr}")
+
+st.markdown("""---""")
+
+
+
 
 lls=range(0,len(myfeelbounds)-1)
 #print(myfeelbound[1])

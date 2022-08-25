@@ -120,12 +120,12 @@ t_column,f_column= st.columns(2)
     
 with t_column:
     st.caption("Total Distance:")
-    st.caption(f"{sd_hr}")
+    st.caption(f"{tot_dis}")
     
     
 with f_column:
     st.caption("Total Elevation:")
-    st.caption(f"{sd_hr}")    
+    st.caption(f"{tot_el}")    
 
 st.markdown("""---""")
 

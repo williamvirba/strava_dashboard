@@ -94,7 +94,7 @@ hrs = st.sidebar.multiselect(
 df_selection = df.query(
     "hr == @hrs"
 )
-st.dataframe(df_selection.iloc[: , :13])
+st.dataframe(df_selection.iloc[: , :20])
 
 
 

@@ -124,7 +124,7 @@ with t_column:
     
     
 with f_column:
-    st.caption("Total Elevation [m] :")
+    st.caption("Total Elevation diff [m] :")
     st.caption(f"{tot_el}")    
 
 st.markdown("""---""")

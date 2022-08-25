@@ -106,22 +106,22 @@ sd_hr = (df_selection["hr"].std())
 tot_dis = (df_selection["cum_distance"].max())
 tot_el = (df_selection["cum_elevation"].max())
 
-1_column,2_column,3_column,4_column= st.columns(4)
+f_column,s_column,t_column,f_column= st.columns(4)
 
-with 1_column:
+with f_column:
     st.subheader("Average HR:")
     st.subheader(f"{average_hr}")
 
-with 2_column:
+with s_column:
     st.subheader("sd HR:")
     st.subheader(f"{sd_hr}")
     
-with 3_column:
+with t_column:
     st.subheader("Total Distance:")
     st.subheader(f"{sd_hr}")
     
     
-with 4_column:
+with f_column:
     st.subheader("Total Elevation:")
     st.subheader(f"{sd_hr}")    
 

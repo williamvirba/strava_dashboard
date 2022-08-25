@@ -97,26 +97,37 @@ df_selection = df.query(
 
 
 
-st.dataframe(df_selection.iloc[: , :20])
+
 
 
 
 average_hr = (df_selection["hr"].mean())
 sd_hr = (df_selection["hr"].std())
+tot_dis = (df_selection["cum_distance"].max())
+tot_el = (df_selection["cum_elevation"].max())
 
-left_column,right_column= st.columns(2)
+1_column,2_column,2_column,2_column= st.columns(4)
 
-with left_column:
+with 1_column:
     st.subheader("Average HR:")
     st.subheader(f"{average_hr}")
 
-with right_column:
+with 2_column:
     st.subheader("sd HR:")
     st.subheader(f"{sd_hr}")
+    
+with 3_column:
+    st.subheader("Total Distance:")
+    st.subheader(f"{sd_hr}")
+    
+    
+with 4_column:
+    st.subheader("Total Elevation:")
+    st.subheader(f"{sd_hr}")    
 
 st.markdown("""---""")
 
-
+st.dataframe(df_selection.iloc[: , :20])
 
 
 lls=range(0,len(myfeelbounds)-1)

@@ -107,7 +107,7 @@ tot_dis = (df_selection["cum_distance"].max())
 tot_el = (df_selection["cum_elevation"].max())
 
 f_column,s_column= st.columns(2)
-t_column,f_column= st.columns(2)
+
 with f_column:
     st.subheader("Average HR:")
     st.subheader(f"{average_hr}")
@@ -115,6 +115,8 @@ with f_column:
 with s_column:
     st.subheader("sd HR:")
     st.subheader(f"{sd_hr}")
+
+t_column,f_column= st.columns(2)    
     
 with t_column:
     st.caption("Total Distance:")

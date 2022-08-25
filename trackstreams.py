@@ -119,13 +119,13 @@ with s_column:
 t_column,f_column= st.columns(2)    
     
 with t_column:
-    st.caption("Total Distance [km] :")
-    st.caption(f"{tot_dis/1000}")
+    st.subheader("Total Distance [km] :")
+    st.subheader(f"{tot_dis/1000}")
     
     
 with f_column:
-    st.caption("Total Elevation diff [m] :")
-    st.caption(f"{tot_el}")    
+    st.subheader("Total Elevation diff [m] :")
+    st.subheader(f"{tot_el}")    
 
 st.markdown("""---""")
 

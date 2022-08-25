@@ -88,7 +88,7 @@ st.sidebar.header("Please Filter Here:")
 lons = st.sidebar.multiselect(
     "Select the Lons:",
     options=df["lon"].unique(),
-    default=df["lon"].unique()
+    default=None
 )
 
 df_selection = df.query(
@@ -99,7 +99,7 @@ st.sidebar.header("Please Filter Here:")
 lats = st.sidebar.multiselect(
     "Select the Lats:",
     options=df["lat"].unique(),
-    default=df["lat"].unique()
+    default=None
 )
 
 df_selection = df.query(

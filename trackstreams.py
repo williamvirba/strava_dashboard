@@ -85,26 +85,16 @@ st.markdown("##")
 
 
 st.sidebar.header("Please Filter Here:")
-lons = st.sidebar.multiselect(
-    "Select the Lons:",
-    options=df["lon"].unique(),
-    default=None
+speeds = st.sidebar.multiselect(
+    "Select the Speeds:",
+    options=df["Speed"].unique(),
+    default=["Speed"].unique()
 )
 
 df_selection = df.query(
-    "lon == @lons"
+    "Speed == @speeds"
 )
 
-st.sidebar.header("Please Filter Here:")
-lats = st.sidebar.multiselect(
-    "Select the Lats:",
-    options=df["lat"].unique(),
-    default=None
-)
-
-df_selection = df.query(
-    "lat == @lats"
-)
 
 
 

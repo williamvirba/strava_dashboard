@@ -129,8 +129,6 @@ with f_column:
 
 st.markdown("""---""")
 
-st.dataframe(df_selection.iloc[: , :20])
-
 
 lls=range(0,len(myfeelbounds)-1)
 #print(myfeelbound[1])
@@ -163,7 +161,7 @@ plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 st.write(fig)
 plt.show()
 
-
+st.dataframe(df_selection.iloc[: , :20])
 
 
 

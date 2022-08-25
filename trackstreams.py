@@ -1,18 +1,10 @@
-#import seaborn as sns
-
 import pandas as pd  # pip install pandas openpyxl
 import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 from gpxcsv import gpxtolist
-
 import numpy as np
 import matplotlib.pyplot as plt
-import haversine as hs
-import mpld3
-import streamlit.components.v1 as components
-import matplotlib.pyplot as plt
-import matplotlib.colors as mplc
-import matplotlib as mpl
+
 
 
 

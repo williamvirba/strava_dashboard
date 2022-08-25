@@ -85,15 +85,29 @@ st.markdown("##")
 
 
 st.sidebar.header("Please Filter Here:")
-eles = st.sidebar.multiselect(
-    "Select the Elevations:",
-    options=df["ele"].unique(),
-    default=df["ele"].unique()
+lons = st.sidebar.multiselect(
+    "Select the Lons:",
+    options=df["lon"].unique(),
+    default=df["lon"].unique()
 )
 
 df_selection = df.query(
-    "ele == @eles"
+    "lon == @lons"
 )
+
+st.sidebar.header("Please Filter Here:")
+lats = st.sidebar.multiselect(
+    "Select the Lats:",
+    options=df["lat"].unique(),
+    default=df["lat"].unique()
+)
+
+df_selection = df.query(
+    "lat == @lats"
+)
+
+
+
 st.dataframe(df_selection.iloc[: , :20])
 
 

@@ -88,7 +88,7 @@ st.sidebar.header("Please Filter Here:")
 speeds = st.sidebar.multiselect(
     "Select the Speeds:",
     options=df["Speed"].unique(),
-    default=f["Speed"].unique()
+    default=df["Speed"].unique()
 )
 
 df_selection = df.query(

@@ -1,1 +1,2 @@
 plotly-express== 0.4.0
+gpxcsv == 0.1.0

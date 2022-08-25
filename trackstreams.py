@@ -54,8 +54,8 @@ df['Time'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.time
 #df['Times'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.second
 #df['Timem'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.minute
 #df['Timeh'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.hour
-#df['Timess'] = df['Times']+df['Timem']*60+df['Timem']*3600
-#df['Timed'] = df['Timess'].diff()
+df['Timess'] = df['Times']+df['Timem']*60+df['Timem']*3600
+df['Timed'] = df['Timess'].diff()
 
 df['Speed'] = df['distance']/df['Timed']*3600/1000
 

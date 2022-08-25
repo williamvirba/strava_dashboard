@@ -117,13 +117,13 @@ with s_column:
     st.subheader(f"{sd_hr}")
     
 with t_column:
-    st.subheader("Total Distance:")
-    st.subheader(f"{sd_hr}")
+    st.caption("Total Distance:")
+    st.caption(f"{sd_hr}")
     
     
 with f_column:
-    st.subheader("Total Elevation:")
-    st.subheader(f"{sd_hr}")    
+    st.caption("Total Elevation:")
+    st.caption(f"{sd_hr}")    
 
 st.markdown("""---""")
 

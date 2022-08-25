@@ -85,14 +85,14 @@ st.markdown("##")
 
 
 st.sidebar.header("Please Filter Here:")
-hrs = st.sidebar.multiselect(
-    "Select the HRs:",
-    options=df["hr"].unique(),
-    default=df["hr"].unique()
+eles = st.sidebar.multiselect(
+    "Select the Elevations:",
+    options=df["ele"].unique(),
+    default=df["ele"].unique()
 )
 
 df_selection = df.query(
-    "hr == @hrs"
+    "ele == @eles"
 )
 st.dataframe(df_selection.iloc[: , :20])
 

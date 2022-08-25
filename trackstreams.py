@@ -83,16 +83,15 @@ normd = mpl.colors.BoundaryNorm(boundaries=myfeelbound, ncolors=len(cdmap.colors
 st.title(":bar_chart: Track Stream ")
 st.markdown("##")
 
-
 st.sidebar.header("Please Filter Here:")
-speeds = st.sidebar.multiselect(
-    "Select the Speeds:",
-    options=df["Speed"].unique(),
-    default=df["Speed"].unique()
+hrs = st.sidebar.multiselect(
+    "Select the HRs:",
+    options=df["hr"].unique(),
+    default=df["hr"].unique()
 )
 
 df_selection = df.query(
-    "Speed == @speeds"
+    "hr == @hrs"
 )
 
 

@@ -129,7 +129,7 @@ with f_column:
 
 st.markdown("""---""")
 
-fig = plt.figure(2,figsize = (16, 20))
+figas = plt.figure(2,figsize = (16, 20))
 ax = plt.subplot(211)
 plot=ax.scatter(xliness,yliness, c=c,cmap=cdmap,s=s*5,norm=normd)
 plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")

@@ -129,6 +129,8 @@ with f_column:
 
 st.markdown("""---""")
 
+figa=px.scatter_3d(df,x=xliness, y=yliness,z=zliness,color=c)
+st.write(figa)
 
 lls=range(0,len(myfeelbounds)-1)
 #print(myfeelbound[1])

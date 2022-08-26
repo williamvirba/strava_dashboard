@@ -129,7 +129,7 @@ with f_column:
 
 st.markdown("""---""")
 
-figa=px.scatter_3d(df,x=xliness, y=yliness,z=zliness,color=c,cmap=cdmap)
+figa=px.scatter_3d(df,x=xliness, y=yliness,z=zliness,color=c,color_discrete_map=cdmap)
 st.write(figa)
 
 lls=range(0,len(myfeelbounds)-1)

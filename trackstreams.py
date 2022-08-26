@@ -131,7 +131,7 @@ st.markdown("""---""")
 
 figas = plt.figure(2,figsize = (16, 20))
 ax = plt.subplot(211)
-plot=ax.scatter(xliness,yliness, c=c,cmap=cdmap,s=s*5,norm=normd)
+plot=ax.scatter(xliness,yliness, c=c,cmap=cdmap,s=s*8,norm=normd)
 plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 
 st.write(figas)

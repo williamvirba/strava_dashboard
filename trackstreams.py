@@ -129,8 +129,19 @@ with f_column:
 
 st.markdown("""---""")
 
+fig = plt.figure(2,figsize = (16, 20))
+ax = plt.subplot(211)
+plot=ax.scatter(xliness,yliness, c=c,cmap=cdmap,s=s*5,norm=normd)
+plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
+
+st.write(figas)
+
+
 figa=px.scatter_3d(df,x=xliness, y=yliness,z=zliness,color=c,color_continuous_scale="Rainbow")
 st.write(figa)
+
+
+
 
 lls=range(0,len(myfeelbounds)-1)
 #print(myfeelbound[1])

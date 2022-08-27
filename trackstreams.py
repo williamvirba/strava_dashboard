@@ -137,7 +137,12 @@ plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 st.write(figas)
 
 
-figa=px.scatter_3d(df,x=xliness, y=yliness,z=zliness,color=c,color_continuous_scale="thermal")
+figa=px.scatter_3d(df,x=xliness, y=yliness,z=zliness,color=c,color_continuous_scale="thermal",width=800, height=400,depth=800)
+
+figa.update_layout(
+    margin=dict(l=20, r=20, t=20, b=20),
+    paper_bgcolor="LightSteelBlue",
+)
 st.write(figa)
 
 

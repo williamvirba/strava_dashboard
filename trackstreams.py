@@ -16,7 +16,7 @@ st.set_page_config(page_title="Track Stream", page_icon=":bar_chart:", layout="w
 
 
 
-df = pd.DataFrame(gpxtolist("Afternoon_Run.gpx"))
+df = pd.DataFrame(gpxtolist("99_MMM_2022.gpx"))
 
 
 

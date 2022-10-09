@@ -187,7 +187,7 @@ df["id"]=np.arange(len(df))
 #figss = plt.figure()
 
 fig = plt.figure(2,figsize = (16, 20))
-ax1 = plt.subplot(212)
+ax1 = plt.subplot(211)
 
 
 for i in lls :
@@ -203,7 +203,7 @@ for i in lls :
 
 pass
 
-ax2 = plt.subplot(211,projection ="3d")
+ax2 = plt.subplot(212,projection ="3d")
 plot=ax2.scatter(xliness,yliness, zliness, c=c,cmap=cdmap,s=s*5,norm=normd)
 plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 

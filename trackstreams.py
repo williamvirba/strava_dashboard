@@ -192,13 +192,13 @@ ax1 = plt.subplot(211)
 
 for i in lls :
 
-    mask= ((df['hr'] >= myfeelbounds[i]) & (myfeelbounds[i+1] > df['hr']))
+    mask= ((df['hr'] >= myfeelbounds[i-1]) & (myfeelbounds[i] > df['hr']))
 
     col = (df.loc[mask]['hr'])
     #for s in df.loc[mask]:
     #colorr.append(colourlist[i])
 
-    ax1.bar(df["id"][mask], df['hr'][mask], color = colourlist[i],width=2)
+    ax1.bar(df["cum_distance"][mask], df['hr'][mask], color = colourlist[i],width=2)
 
 
 pass

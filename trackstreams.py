@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import haversine as hs
 import matplotlib as mpl
-
+import tilemapbase
 
 
 
@@ -68,16 +68,6 @@ c=df["hr"]
 s=df["Speed"]
 
 
-tags =["Very Low" ,"Low" ,"Warm Up" ,"Fat Burn" ,"Build Fitness" ,"High Intensity" ,"Extreme" ,"Health Threat","Life Threat"]
-
-myfeelbound=[46,60,80,120,140,160,180,195,220,260]
-myfeelbounds=[0,46,60,80,120,140,160,180,195,220]
-colourlist =["grey","#666666","blue" ,"green" ,"yellow" ,"orange" ,"red","brown","purple","black"]
-
-
-assert len(myfeelbound)== len(colourlist)
-cdmap = mpl.colors.ListedColormap(colourlist)
-normd = mpl.colors.BoundaryNorm(boundaries=myfeelbound, ncolors=len(cdmap.colors)+1,extend="both",clip=False )
 
 
 st.title(":bar_chart: Track Stream ")
@@ -129,10 +119,53 @@ with f_column:
 
 st.markdown("""---""")
 
-figas = plt.figure(2,figsize = (16, 20))
-ax = plt.subplot(211)
-plot=ax.scatter(xliness,yliness, c=c,cmap=cdmap,s=s*8,norm=normd)
-plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
+
+bounding_box = [df["lat"].min(), df["lat"].max(), df["lon"].min(), df["lon"].max()]
+print(bounding_box)
+
+
+path = [tilemapbase.project(x,y) for x,y in zip(df["lon"], df["lat"])]
+x, y = zip(*path)
+
+
+tilemapbase.start_logging()
+tilemapbase.init(create=True)
+t = tilemapbase.tiles.build_OSM()
+
+my_office = (21.261074,48.718155)
+
+degree_range = 0.05
+
+extent = tilemapbase.Extent.from_lonlat(my_office[0] - degree_range, my_office[0] + degree_range,
+                  my_office[1] - degree_range, my_office[1] + degree_range)
+extent = extent.to_aspect(1.0)
+
+
+# On my desktop, DPI gets scaled by 0.75
+figas, ax = plt.subplots(figsize=(10, 10), dpi=100)
+
+ax.xaxis.set_visible(True)
+ax.yaxis.set_visible(True)
+
+plotter = tilemapbase.Plotter(extent, t, width=600)
+plotter.plot(ax, t)
+
+#x, y = tilemapbase.project(*my_office)
+#ax.scatter(x,y, marker=".", color="black", linewidth=20)
+
+myfeelbound=[46,60,80,120,140,160,180,195,220,260]
+myfeelbounds=[0,46,60,80,120,140,160,180,195,220]
+colourlist =["grey","#666666","blue" ,"green" ,"yellow" ,"orange" ,"red","brown","purple","black"]
+
+
+assert len(myfeelbound)== len(colourlist)
+cdmap = mpl.colors.ListedColormap(colourlist)
+normd = mpl.colors.BoundaryNorm(boundaries=myfeelbounds, ncolors=len(cdmap.colors)+1,extend="both",clip=False )
+
+
+
+plot=ax.scatter(x,y,c=c,cmap=cdmap,s=df["Speed"]/10,norm=normd)
+plt.colorbar(plot,spacing='proportional',label="Heart Rate scale 99.MMM")
 
 st.write(figas)
 

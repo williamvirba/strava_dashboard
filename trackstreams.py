@@ -209,7 +209,7 @@ plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 
 
 
-#st.write(fig)
+st.write(fig)
 plt.show()
 
 st.dataframe(df_selection.iloc[: , :20])

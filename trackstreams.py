@@ -176,7 +176,7 @@ figa.update_layout(
     margin=dict(l=20, r=20, t=20, b=20),
     paper_bgcolor="LightSteelBlue",
 )
-st.write(figa)
+#st.write(figa)
 
 
 
@@ -209,7 +209,7 @@ plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 
 
 
-st.write(fig)
+#st.write(fig)
 plt.show()
 
 st.dataframe(df_selection.iloc[: , :20])

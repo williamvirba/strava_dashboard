@@ -158,7 +158,7 @@ myfeelbounds=[0,46,60,80,120,140,160,180,195,220]
 colourlist =["grey","#666666","blue" ,"green" ,"yellow" ,"orange" ,"red","brown","purple","black"]
 
 
-assert len(myfeelbound)== len(colourlist)
+assert len(myfeelbounds)== len(colourlist)
 cdmap = mpl.colors.ListedColormap(colourlist)
 normd = mpl.colors.BoundaryNorm(boundaries=myfeelbounds, ncolors=len(cdmap.colors)+1,extend="both",clip=False )
 

@@ -65,6 +65,7 @@ df['cum_time'] = df['Timed'].cumsum()
 
 
 df['cum_distance'] = df['distance'].cumsum()
+df['km'] = (df['cum_distance']//1000)+1
 df['Speeds'] = (df['cum_distance'] / df["cum_time"]) *3.6
 zliness = df['ele']
 xliness = df['lon']
@@ -79,14 +80,14 @@ st.title(df["name"][0])
 st.markdown("##")
 
 st.sidebar.header("Please Filter Here:")
-hrs = st.sidebar.multiselect(
+kms = st.sidebar.multiselect(
     "Select the HRs:",
-    options=df["hr"].unique(),
-    default=df["hr"].unique()
+    options=df["km"].unique(),
+    default=df["km"].unique()
 )
 
 df_selection = df.query(
-    "hr == @hrs"
+    "km == @kms"
 )
 
 
@@ -125,11 +126,11 @@ with f_column:
 st.markdown("""---""")
 
 
-bounding_box = [df["lat"].min(), df["lat"].max(), df["lon"].min(), df["lon"].max()]
+bounding_box = [df_selection["lat"].min(), df_selection["lat"].max(), df_selection["lon"].min(), df_selection["lon"].max()]
 print(bounding_box)
 
 
-path = [tilemapbase.project(x,y) for x,y in zip(df["lon"], df["lat"])]
+path = [tilemapbase.project(x,y) for x,y in zip(df_selection["lon"], df_selection["lat"])]
 x, y = zip(*path)
 
 
@@ -170,7 +171,7 @@ normd = mpl.colors.BoundaryNorm(boundaries=myfeelbounds, ncolors=len(cdmap.color
 
 
 
-plot=ax.scatter(x,y,c=c,cmap=cdmap,s=df["Speed"]/10,norm=normd)
+plot=ax.scatter(x,y,c=c,cmap=cdmap,s=df_selection["Speed"]/10,norm=normd)
 plt.colorbar(plot,spacing='proportional',label="W Heart Rate scale",ticks=myfeelbounds)
 plt.title('MAP', loc='center')
 st.write(figas)
@@ -189,7 +190,7 @@ figa.update_layout(
 
 lls=range(0,len(myfeelbounds)-1)
 #print(myfeelbound[1])
-df["id"]=np.arange(len(df))
+df_selection["id"]=np.arange(len(df_selection))
 #figss = plt.figure()
 
 fig = plt.figure(2,figsize = (16, 20))
@@ -198,13 +199,13 @@ ax1 = plt.subplot(211)
 
 for i in lls :
 
-    mask= ((df['hr'] >= myfeelbounds[i-1]) & (myfeelbounds[i] > df['hr']))
+    mask= ((df_selection['hr'] >= myfeelbounds[i-1]) & (myfeelbounds[i] > df_selection['hr']))
 
-    col = (df.loc[mask]['hr'])
+    col = (df_selection.loc[mask]['hr'])
     #for s in df.loc[mask]:
     #colorr.append(colourlist[i])
 
-    ax1.bar(df["cum_distance"][mask], df['hr'][mask], color = colourlist[i],width=7)
+    ax1.bar(df_selection["cum_distance"][mask], df_selection['hr'][mask], color = colourlist[i],width=7)
 
 
 pass
@@ -216,8 +217,8 @@ plt.colorbar(plot,spacing='proportional',label="W Heart Rate scale",ticks=myfeel
 
 figt = plt.figure(2,figsize = (16, 20))
 ax3 = plt.subplot(211)
-plott= ax3.plot(df["cum_distance"],df["Speeds"],color='#02e9fa', marker="_")
-#plotts= ax3.plot(df["cum_distance"],df["hr"],color='blue', marker="_")
+plott= ax3.plot(df_selection["cum_distance"],df_selection["Speeds"],color='#02e9fa', marker="_")
+#plotts= ax3.plot(df["cum_distance"],df_selection["hr"],color='blue', marker="_")
 
 st.write(fig)
 #st.write(figt)

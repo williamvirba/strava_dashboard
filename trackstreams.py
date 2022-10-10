@@ -222,7 +222,7 @@ st.write(fig)
 #st.write(figt)
 plt.show()
 
-st.dataframe(df_selection.iloc[: , :20])
+st.dataframe(df_selection.iloc[: , :])
 
 
 

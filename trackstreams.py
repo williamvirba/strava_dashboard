@@ -219,7 +219,7 @@ ax3 = plt.subplot(211)
 plott= ax3.plot(df["cum_distance"],df["Speeds"],color='green', marker="_")
 
 st.write(fig)
-st.write(figt)
+#st.write(figt)
 plt.show()
 
 st.dataframe(df_selection.iloc[: , :20])

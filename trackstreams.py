@@ -161,7 +161,7 @@ plotter.plot(ax, t)
 myfeelbound=[46,60,80,120,140,160,180,195,220,260]
 myfeelboundsp=[0,46,60,80,120,140,160,180,195,220]
 myfeelbounds=[0,80,120,140,150,160,170,180,195,220]
-colourlist =["grey","#666666","blue" ,"green" ,"yellow" ,"orange" ,"red","brown","purple","black"]
+colourlist =["grey","#02e9fa","blue" ,"green" ,"yellow" ,"orange" ,"red","brown","purple","black"]
 
 
 assert len(myfeelbounds)== len(colourlist)

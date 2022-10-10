@@ -49,27 +49,28 @@ for i in range(len(df)):
 df['distance'] = distances
 df['elevation_diff'] = df['ele'].diff()
 df['cum_elevation'] = df['elevation_diff'].cumsum()
-df['cum_distance'] = df['distance'].cumsum()
 
 
 df['Date'] = df['time'].str[:10]
 df['Time'] = df['time'].str[11:19]
-df['Time'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.time
-df['Times'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.second
-df['Timem'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.minute
-df['Timeh'] = pd.to_datetime(df['Time'],format= '%H:%M:%S').dt.hour
-df['Timess'] = df['Times']+df['Timem']*60+df['Timem']*3600
+df['Time'] = pd.to_datetime(df['Time'], format='%H:%M:%S').dt.time
+df['Times'] = pd.to_datetime(df['Time'], format='%H:%M:%S').dt.second
+df['Timem'] = pd.to_datetime(df['Time'], format='%H:%M:%S').dt.minute
+df['Timeh'] = pd.to_datetime(df['Time'], format='%H:%M:%S').dt.hour
+df['Timess'] = df['Times'] + df['Timem'] * 60 + df['Timeh'] * 3600
 df['Timed'] = df['Timess'].diff()
+df['Speed'] = df['distance'] / df['Timed'] * 3600 / 1000
+df['cum_time'] = df['Timed'].cumsum()
 
-df['Speed'] = df['distance']/df['Timed']*3600/1000
 
 
-
+df['cum_distance'] = df['distance'].cumsum()
+df['Speeds'] = (df['cum_distance'] / df["cum_time"]) *3.6
 zliness = df['ele']
 xliness = df['lon']
 yliness = df['lat']
-c=df["hr"]
-s=df["Speed"]
+c = df["hr"]
+s = df["Speed"]
 
 
 
@@ -212,7 +213,8 @@ ax2 = plt.subplot(212,projection ="3d")
 plot=ax2.scatter(xliness,yliness, zliness, c=c,cmap=cdmap,s=s*5,norm=normd)
 plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 
-
+ax3 = plt.subplot(213)
+plott= plt.plot(df["cum_distance"],df["Speeds"],color='green', marker="_")
 
 st.write(fig)
 plt.show()

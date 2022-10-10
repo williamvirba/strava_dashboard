@@ -169,7 +169,7 @@ normd = mpl.colors.BoundaryNorm(boundaries=myfeelbounds, ncolors=len(cdmap.color
 
 plot=ax.scatter(x,y,c=c,cmap=cdmap,s=df["Speed"]/10,norm=normd)
 plt.colorbar(plot,spacing='proportional',label="W Heart Rate scale")
-plt.title('Heart Rate Distribution', loc='center')
+plt.title('MAP', loc='center')
 st.write(figas)
 
 
@@ -201,7 +201,7 @@ for i in lls :
     #for s in df.loc[mask]:
     #colorr.append(colourlist[i])
 
-    ax1.bar(df["cum_distance"][mask], df['hr'][mask], color = colourlist[i],width=7,title="Heart Rate Distribution")
+    ax1.bar(df["cum_distance"][mask], df['hr'][mask], color = colourlist[i],width=7)
 
 
 pass

@@ -80,14 +80,14 @@ st.title(df["name"][0])
 st.markdown("##")
 
 st.sidebar.header("Please Filter Here:")
-kms = st.sidebar.multiselect(
+hrs = st.sidebar.multiselect(
     "Select the KMs:",
-    options=df["km"].unique(),
-    default=df["km"].unique()
+    options=df["hr"].unique(),
+    default=df["hr"].unique()
 )
 
 df_selection = df.query(
-    "km == @kms"
+    "hr == @hrs"
 )
 
 

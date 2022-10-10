@@ -211,7 +211,7 @@ pass
 
 ax2 = plt.subplot(212,projection ="3d")
 plot=ax2.scatter(xliness,yliness, zliness, c=c,cmap=cdmap,s=s*5,norm=normd)
-plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
+plt.colorbar(plot,spacing='proportional',label="Heart Rate scale",ticks=myfeelbounds)
 
 
 figt = plt.figure(2,figsize = (16, 20))

@@ -217,7 +217,7 @@ plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 figt = plt.figure(2,figsize = (16, 20))
 ax3 = plt.subplot(211)
 plott= ax3.plot(df["cum_distance"],df["Speeds"],color='green', marker="_")
-plotts= ax3.plot(df["cum_distance"],df["Speed"],color='blue', marker="_")
+#plotts= ax3.plot(df["cum_distance"],df["hr"],color='blue', marker="_")
 
 st.write(fig)
 #st.write(figt)

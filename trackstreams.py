@@ -154,7 +154,8 @@ plotter.plot(ax, t)
 #ax.scatter(x,y, marker=".", color="black", linewidth=20)
 
 myfeelbound=[46,60,80,120,140,160,180,195,220,260]
-myfeelbounds=[0,46,60,80,120,140,160,180,195,220]
+myfeelboundsp=[0,46,60,80,120,140,160,180,195,220]
+myfeelbounds=[0,80,120,140,150,160,170,180,195,220]
 colourlist =["grey","#666666","blue" ,"green" ,"yellow" ,"orange" ,"red","brown","purple","black"]
 
 

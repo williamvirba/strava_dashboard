@@ -81,7 +81,7 @@ st.markdown("##")
 
 st.sidebar.header("Please Filter Here:")
 kms = st.sidebar.multiselect(
-    "Select the HRs:",
+    "Select the KMs:",
     options=df["km"].unique(),
     default=df["km"].unique()
 )

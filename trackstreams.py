@@ -12,7 +12,7 @@ import tilemapbase
 
 #streamlit run pythonfile.py into terminal streamlit run trackstream.py
 
-file_bytes = st.file_uploader("Upload a file", type=("gpx"))
+
 
 df = pd.DataFrame(gpxtolist("99_MMM_2022.gpx"))
 

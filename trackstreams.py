@@ -90,7 +90,7 @@ df_selection = df.query(
     "hr == @hrs"
 )
 
-df=df_selection
+
 
 
 

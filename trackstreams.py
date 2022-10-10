@@ -213,10 +213,13 @@ ax2 = plt.subplot(212,projection ="3d")
 plot=ax2.scatter(xliness,yliness, zliness, c=c,cmap=cdmap,s=s*5,norm=normd)
 plt.colorbar(plot,spacing='proportional',label="Heart Rate scale")
 
-ax3 = plt.subplot(213)
-plott= plt.plot(df["cum_distance"],df["Speeds"],color='green', marker="_")
+
+figt = plt.figure(2,figsize = (16, 20))
+ax3 = plt.subplot(211)
+plott= ax3.plot(df["cum_distance"],df["Speeds"],color='green', marker="_")
 
 st.write(fig)
+st.write(figt)
 plt.show()
 
 st.dataframe(df_selection.iloc[: , :20])

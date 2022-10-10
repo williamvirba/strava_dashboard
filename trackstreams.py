@@ -161,7 +161,7 @@ plotter.plot(ax, t)
 myfeelbound=[46,60,80,120,140,160,180,195,220,260]
 myfeelboundsp=[0,46,60,80,120,140,160,180,195,220]
 myfeelbounds=[0,80,120,140,150,160,170,180,190,200,220]
-colourlist =["grey","#666666","blue" ,"green" ,"yellow" ,"orange" ,"pink","red","brown","purple","black"]
+colourlist =["grey","#666666","blue" ,"green" ,"yellow" ,"orange" ,"#f705db","red","brown","purple","black"]
 
 
 assert len(myfeelbounds)== len(colourlist)
@@ -171,7 +171,7 @@ normd = mpl.colors.BoundaryNorm(boundaries=myfeelbounds, ncolors=len(cdmap.color
 
 
 plot=ax.scatter(x,y,c=c,cmap=cdmap,s=df["Speed"]/10,norm=normd)
-plt.colorbar(plot,spacing='proportional',label="W Heart Rate scale")
+plt.colorbar(plot,spacing='proportional',label="W Heart Rate scale",ticks=myfeelbounds)
 plt.title('MAP', loc='center')
 st.write(figas)
 
@@ -211,7 +211,7 @@ pass
 
 ax2 = plt.subplot(212,projection ="3d")
 plot=ax2.scatter(xliness,yliness, zliness, c=c,cmap=cdmap,s=s*5,norm=normd)
-plt.colorbar(plot,spacing='proportional',label="Heart Rate scale",ticks=myfeelbounds)
+plt.colorbar(plot,spacing='proportional',label="W Heart Rate scale",ticks=myfeelbounds)
 
 
 figt = plt.figure(2,figsize = (16, 20))

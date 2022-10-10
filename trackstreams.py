@@ -201,7 +201,7 @@ for i in lls :
     #for s in df.loc[mask]:
     #colorr.append(colourlist[i])
 
-    ax1.bar(df["cum_distance"][mask], df['hr'][mask], color = colourlist[i],width=7)
+    ax1.bar(df["cum_distance"][mask], df['hr'][mask], color = colourlist[i],width=7,title="Heart Rate Distribution")
 
 
 pass

@@ -168,7 +168,7 @@ normd = mpl.colors.BoundaryNorm(boundaries=myfeelbounds, ncolors=len(cdmap.color
 
 
 plot=ax.scatter(x,y,c=c,cmap=cdmap,s=df["Speed"]/10,norm=normd)
-plt.colorbar(plot,spacing='proportional',label="Heart Rate scale 99.MMM")
+plt.colorbar(plot,spacing='proportional',label="W Heart Rate scale")
 
 st.write(figas)
 

@@ -72,7 +72,7 @@ s=df["Speed"]
 
 
 
-st.title(":bar_chart"+ df["name"][0])
+st.title(df["name"][0])
 st.markdown("##")
 
 st.sidebar.header("Please Filter Here:")
